@@ -8,6 +8,7 @@ import {
   Revenue
 } from './definitions'
 import { formatCurrency } from './utils'
+import { unstable_noStore as noStore } from 'next/cache'
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' })
 
@@ -17,6 +18,7 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' })
  * @returns {Promise<Revenue[]>} 返回一个包含收入数据的Promise对象
  */
 export async function fetchRevenue() {
+  // noStore()
   try {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
@@ -24,15 +26,15 @@ export async function fetchRevenue() {
     // 人为延迟响应，仅用于演示目的
     // 在生产环境中请勿这样做 :)
     // console.log('Fetching revenue data...');
-    // console.log('正在获取收入数据...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    // console.log('正在获取收入数据...')
+    // await new Promise((resolve) => setTimeout(resolve, 3000))
 
     // 等待3秒，仅用于演示
     const data = await sql<Revenue[]>`SELECT * FROM revenue`
 
     // 从revenue表中查询所有数据
     // 使用SQL模板查询获取收入数据
-    // console.log('Data fetch completed after 3 seconds.');
+    // console.log('Data fetch completed after 3 seconds.')
 
     // console.log('数据获取完成，耗时3秒。');
     return data
