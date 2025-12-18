@@ -4,6 +4,8 @@
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx .gitignore",
+    "lint:fix": "eslint --fix . --ext .js,.jsx,.ts,.tsx .gitignore",
     "seed": "node -r dotenv/config scripts/seed.js"
   },
   "dependencies": {
@@ -30,7 +32,10 @@
     "@types/node": "22.10.7",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^14.0.0",
+    "prettier": "^3.0.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
